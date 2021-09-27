@@ -1,0 +1,20 @@
+
+<h2>TODO</h2>
+<div class = "container" >
+
+<form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm = "ngForm">
+    <div class="alert alert-warning" *ngIf="todoForm.dirty && (todoForm.invalid || description.invalid || date.invalid)">fill the form!!</div>
+<fieldset class="form-group">
+    <label>Description</label>
+    <input type = "text" #description="ngModel" [(ngModel)]="todo.description" class="form-control" name = "description" required = "required">
+</fieldset>   
+<fieldset class="form-group">
+    <label>Target Date</label>
+    <input type = "date" #date="ngModel" [ngModel]="todo.targetDate | date:'yyyy-MM-dd'"
+    (ngModelChange)="todo.targetDate = $event" class="form-control" name = "taget date" required = "required" >
+</fieldset>
+<!-- ng model is divided into its two componnets property binding[]//happens when value is to binded with some variable and 
+event binding()//happens when a method is to be called or to assign a value when a paeticualar event is finished and what is returned than. -->    
+<button type="submit" class="btn btn-success">submit</button>
+</form>
+</div>

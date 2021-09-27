@@ -1,0 +1,18 @@
+<h1>Welcome!</h1>
+<div class="container alert alert-danger" role="alert" *ngIf="errorMessage">
+    <strong>{{errorMessage}}</strong>
+</div>
+<div class="container">
+    Welcomme to our awesome app {{name}}.you can manage your todo's <a routerLink="/todos">here </a> 
+    <!--routerLink  is the angular derivative and the value of it it the name of page the is set by us and we ant to go there.-->
+</div>
+<br>
+<br>
+<div class = "container">
+    click here to get personalized welcome message.
+    <button type = "button" class = "btn btn-dark" (click)="getWelcomeMessageWithParameter()">click here!</button>
+</div>
+<br>
+<div class = "container" *ngIf="customMessage">
+    <h2>your message from API is {{customMessage}}</h2>
+</div>
